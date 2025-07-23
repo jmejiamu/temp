@@ -3,6 +3,7 @@ import { View, ScrollView, Dimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import OnboardingScreen from "@/components/OnboardingScreen/OnboardingScreen";
+import { ProgressBar } from "@/components/ProgressBar/ProgressBar";
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -56,7 +57,9 @@ export default function StepOne() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView edges={["bottom"]} className="flex-1 bg-white">
+      <ProgressBar step={currentIndex + 1} total={onboardingData.length} />
+      <View className="my-2" />
       <ScrollView
         ref={scrollViewRef}
         horizontal
@@ -79,7 +82,7 @@ export default function StepOne() {
       </ScrollView>
 
       {/* Page Indicators */}
-      <View className="flex-row justify-center mb-4">
+      <View className="flex-row justify-center mb-4 mt-4">
         {onboardingData.map((_, index) => (
           <View
             key={index}

@@ -1,13 +1,5 @@
-import {
-  Image,
-  ImageSourcePropType,
-  StyleSheet,
-  Text,
-  View,
-  Animated,
-} from "react-native";
+import { ImageSourcePropType, StyleSheet, View, Animated } from "react-native";
 import React, { useEffect, useRef } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, ButtonText } from "../ui/button";
 import { Href, useRouter } from "expo-router";
 
@@ -60,8 +52,8 @@ const OnboardingScreen = (props: OnboardingScreenProps) => {
   }, []);
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
-      <View className="flex-1 bg-white mx-4">
+    <>
+      <View className="flex-1 mx-4">
         <Animated.Image
           source={props.imageSource}
           className="rounded-2xl bg-red-200 w-full h-3/5"
@@ -104,7 +96,7 @@ const OnboardingScreen = (props: OnboardingScreenProps) => {
           <ButtonText>{props.buttonCTA}</ButtonText>
         </Button>
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 
