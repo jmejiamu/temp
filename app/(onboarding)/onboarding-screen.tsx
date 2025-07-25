@@ -45,8 +45,8 @@ export default function StepOne() {
         animated: true,
       });
     } else {
-      // Navigate to tabs when done
-      router.replace("/(tabs)");
+      // Navigate to auth/register when done
+      router.replace("/(auth)/register");
     }
   };
 
@@ -57,7 +57,7 @@ export default function StepOne() {
   };
 
   return (
-    <SafeAreaView edges={["bottom"]} className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-white">
       <ProgressBar step={currentIndex + 1} total={onboardingData.length} />
       <View className="my-2" />
       <ScrollView
