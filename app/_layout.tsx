@@ -63,12 +63,9 @@ function RootLayoutNav() {
   return (
     <GluestackUIProvider mode="light">
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack
-        // initialRouteName={logging ? "(tabs)" : "(onboarding)"}
-        >
+        <Stack>
           <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(protected)" options={{ headerShown: false }} />
         </Stack>
       </ThemeProvider>
     </GluestackUIProvider>
