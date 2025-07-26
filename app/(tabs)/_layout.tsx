@@ -1,7 +1,6 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
-import { Pressable } from "react-native";
+import { Tabs } from "expo-router";
 
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
@@ -15,7 +14,13 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+import { Redirect } from "expo-router";
+const isLoggedIn = true;
+
 export default function TabLayout() {
+  if (!isLoggedIn) {
+    return <Redirect href="/(onboarding)" />;
+  }
   const colorScheme = useColorScheme();
 
   return (
