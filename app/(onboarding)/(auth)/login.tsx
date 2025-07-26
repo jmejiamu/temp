@@ -23,17 +23,14 @@ export default function Login() {
 
   const [loading, setLoading] = useState(false);
 
-  console.log("🚀 ~ Register ~ errors:", errors);
-
   const handleSubmit = () => {
     const isValidForm = validate();
-    console.log("🚀 ~ handleSubmit ~ isValidForm:", isValidForm);
     setTimeout(() => {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
         if (isValidForm) {
-          router.replace("/(tabs)");
+          router.replace("/home");
         }
       }, 2000); // loading will be false after 2 seconds
     });
@@ -70,7 +67,7 @@ export default function Login() {
           />
         </View>
         <Link
-          href={"/(auth)/forgot-password"}
+          href={"/forgot-password"}
           className="mt-8  text-sm text-gray-500 "
           style={{ textDecorationLine: "underline" }}
         >
@@ -92,7 +89,7 @@ export default function Login() {
         </Button>
 
         <Link
-          href={"/(auth)/register"}
+          href={"/register"}
           className="mt-8 text-center text-sm text-gray-500 "
           style={{ textDecorationLine: "underline" }}
         >
