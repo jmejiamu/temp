@@ -1,6 +1,8 @@
 import CustomInput from "@/components/CustomInput/CustomInput";
 import { Button, ButtonSpinner, ButtonText } from "@/components/ui/button";
 import { useForm } from "@/hooks/useForm/useForm";
+import { setAuth } from "@/redux/features/auth/authSlice";
+import { AppDispatch } from "@/redux/store/store";
 import { ILogin } from "@/types/sigin";
 import { signInValidation } from "@/validation/siginValidation";
 import { Ionicons } from "@expo/vector-icons";
@@ -8,6 +10,7 @@ import { Link, useRouter } from "expo-router";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
   const initialFormData: ILogin = {
@@ -16,6 +19,7 @@ export default function Login() {
   };
 
   const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
   const { handleChange, errors, formData, validate } = useForm<ILogin>(
     initialFormData,
     signInValidation
@@ -34,6 +38,14 @@ export default function Login() {
         }
       }, 2000); // loading will be false after 2 seconds
     });
+    if (isValidForm) {
+      dispatch(
+        setAuth({
+          email: formData.email,
+          isLoggedIn: true,
+        })
+      );
+    }
 
     // how can set the loading to false after the validation?
   };

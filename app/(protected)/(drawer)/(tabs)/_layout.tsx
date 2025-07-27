@@ -14,13 +14,7 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
-import { Redirect } from "expo-router";
-const isLoggedIn = true;
-
 export default function TabLayout() {
-  if (!isLoggedIn) {
-    return <Redirect href="/(onboarding)" />;
-  }
   const colorScheme = useColorScheme();
 
   return (
