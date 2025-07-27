@@ -75,7 +75,7 @@ export default function ForgotPassword() {
         </Button>
 
         <Link
-          href={"/(auth)/login"}
+          href={"/login"}
           className="mt-8 text-center text-sm text-gray-500 "
           style={{ textDecorationLine: "underline" }}
         >

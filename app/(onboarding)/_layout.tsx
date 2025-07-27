@@ -1,5 +1,7 @@
-import { Stack, useRouter, useSegments } from "expo-router";
+import { RootState } from "@/redux/store/store";
+import { Redirect, Stack, useRouter, useSegments } from "expo-router";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function OnboardingLayout() {
   const segments = useSegments() as string[];
@@ -7,8 +9,14 @@ export default function OnboardingLayout() {
   const SCREEN = "onboarding-screen";
   const showProgressBar = segments.includes(SCREEN);
 
+  const userAuth = useSelector((state: RootState) => state.auth);
+
   {
     /* {showProgressBar && <ProgressBar step={2} total={3} />} */
+  }
+
+  if (userAuth?.isLoggedIn) {
+    return <Redirect href="/home" />;
   }
   return (
     <Stack
