@@ -40,7 +40,6 @@ export default function Register() {
     // });
 
     if (isValidForm) {
-      console.log("🚀 ~ handleSubmit ~ isValidForm:", isValidForm);
       dispatch(
         setAuth({
           name: formData.name,

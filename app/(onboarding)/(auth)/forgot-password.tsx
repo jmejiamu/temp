@@ -22,11 +22,8 @@ export default function ForgotPassword() {
 
   const [loading, setLoading] = useState(false);
 
-  console.log("🚀 ~ Register ~ errors:", errors);
-
   const handleSubmit = () => {
     const isValidForm = validate();
-    console.log("🚀 ~ handleSubmit ~ isValidForm:", isValidForm);
     setTimeout(() => {
       setLoading(true);
       setTimeout(() => {
