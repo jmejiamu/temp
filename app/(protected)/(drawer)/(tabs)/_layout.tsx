@@ -56,6 +56,14 @@ export default function TabLayout() {
           headerShown: false,
         }}
       />
+      <Tabs.Screen
+        name="recent-search"
+        options={{
+          title: "Recent Search",
+          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
+          headerShown: false,
+        }}
+      />
     </Tabs>
   );
 }

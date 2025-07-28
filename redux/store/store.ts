@@ -12,15 +12,17 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import dataSlice from "../features/dataSlice/dataSlice";
 import authSlice from "../features/auth/authSlice";
+import recentSearchSlice from "../features/recentSearch/recentSearch";
 
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  whitelist: ["userData", "auth"],
+  whitelist: ["auth", "recentSearch"],
 };
 const rootReducer = combineReducers({
   userData: dataSlice,
   auth: authSlice,
+  recentSearch: recentSearchSlice,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
