@@ -15,6 +15,7 @@ const DrinkIndex = () => {
   const router = useRouter();
   const params = useLocalSearchParams();
   const drink = params.drink ? JSON.parse(params.drink as string) : null;
+
   return (
     <SafeAreaView className="flex-1">
       <ScrollView
