@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -78,6 +79,13 @@ const RecentSearch = () => {
           onChangeText={setQuery}
           className="border p-4 rounded-lg mb-4"
         />
+        {loading && (
+          <ActivityIndicator
+            size="large"
+            color="#888"
+            style={{ marginVertical: 16 }}
+          />
+        )}
 
         <FlatList
           data={cocktail}
@@ -122,7 +130,7 @@ const RecentSearch = () => {
           }}
           ListHeaderComponent={
             <View>
-              {query.length > 0 && (
+              {query.length > 0 && !loading && (
                 <Text className="mb-4">Search results for "{query}"</Text>
               )}
             </View>
